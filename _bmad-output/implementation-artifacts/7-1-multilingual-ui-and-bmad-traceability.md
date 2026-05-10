@@ -1,7 +1,7 @@
 ---
 epic_id: epic-7
 story_id: 7-1
-status: review
+status: done
 product_name: DASEIN
 tracing:
   prd: _bmad-output/planning-artifacts/prd-ontoapp.md (FR8, NFR5)
