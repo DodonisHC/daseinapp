@@ -1,0 +1,67 @@
+{
+  "a11y": {
+    "languageSelect": "Idioma do aplicativo",
+    "micRecording": "Gravando",
+    "micStart": "Iniciar gravação"
+  },
+  "chrome": {
+    "langPt": "PT",
+    "langEn": "EN"
+  },
+  "entry": {
+    "headline": "Chegue ao seu corpo.",
+    "startRitual": "Iniciar ritual",
+    "internalDialogue": "Diálogo interno",
+    "checkBalance": "Ver equilíbrio"
+  },
+  "balance": {
+    "heading": "Estado atual",
+    "body": "Corpo (ritual)",
+    "mind": "Mente (diálogo)",
+    "purpose": "Propósito (presente)",
+    "alignmentFull": "Você está em profundo alinhamento.",
+    "alignmentPartial": "Continue cuidando dos seus pilares."
+  },
+  "ritual": {
+    "pausedToast": "Em pausa. Note o silêncio.",
+    "generatedPrompt": "Qual é a qualidade da sua presença neste momento?",
+    "breatheTitle": "Respire.",
+    "breatheSubtitle": "Siga o círculo. Permaneça neste instante.",
+    "imHere": "Estou aqui",
+    "speakTitle": "Fale.",
+    "speakSubtitle": "Perceba o que está aqui agora. Fale sem planejar.",
+    "audioPrivacy": "O áudio é processado localmente e nunca é armazenado.",
+    "promptTitle": "Repare nisto.",
+    "promptSubtitle": "Sua reflexão trouxe uma pergunta:",
+    "carryOn": "Levo isso comigo",
+    "cancel": "Cancelar"
+  },
+  "dialogue": {
+    "title": "Diálogo interno",
+    "ephemeralBadge": "Modo efêmero ativo",
+    "newPrompt": "Nova pergunta",
+    "placeholder": "Escreva com liberdade…",
+    "savePermanent": "Salvar reflexão",
+    "release": "Soltar",
+    "useEphemeral": "Usar modo efêmero",
+    "savePermanentMode": "Salvar de forma permanente",
+    "cancel": "Cancelar",
+    "toastEphemeral": "Processado. Nada foi salvo.",
+    "toastSaved": "Salvo neste dispositivo.",
+    "prompts": [
+      "O que eu estou me dizendo agora?",
+      "Que história estou usando para me proteger?",
+      "O que eu diria se não tivesse medo da resposta?",
+      "Que sentimento estou evitando ao ficar só na cabeça?",
+      "Essa explicação é verdade ou só me dá uma saída mais fácil?"
+    ]
+  },
+  "interruption": {
+    "toastDrifting": "Percebido. Foco atualizado.",
+    "toastAvoiding": "A honestidade é o primeiro passo.",
+    "question": "Você está aqui há um tempo. O que você está notando?",
+    "drifting": "Estou divagando",
+    "avoiding": "Estou evitando algo",
+    "defer": "Agora não"
+  }
+}

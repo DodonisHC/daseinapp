@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom';
 import { vi } from 'vitest';
+import '../i18n/config.js';
 
 // Mocking LocalStorage
 const localStorageMock = (() => {

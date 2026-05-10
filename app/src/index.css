@@ -456,3 +456,41 @@ button {
   opacity: 1;
   pointer-events: auto;
 }
+
+/* Idiomas (BMAD Epic 7 / i18n) */
+.language-switcher {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2001;
+  display: flex;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.lang-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 6px 10px;
+  border-radius: 999px;
+  line-height: 1;
+}
+
+.lang-btn.active {
+  background: rgba(140, 154, 142, 0.22);
+  color: var(--text-primary);
+}
+
+.lang-btn:hover:not(.active) {
+  color: var(--text-primary);
+}

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import useStorage from '../../hooks/useStorage';
 
 const IDLE_THRESHOLD = 45000;
 
 const InterruptionOverlay = ({ activeView, showToast }) => {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const { saveInterruption } = useStorage();
 
@@ -37,8 +39,8 @@ const InterruptionOverlay = ({ activeView, showToast }) => {
     if (choice !== 'deferred') {
       saveInterruption(choice);
       showToast(choice === 'drifting'
-        ? 'Percebido. Foco atualizado.'
-        : 'A honestidade é o primeiro passo.');
+        ? t('interruption.toastDrifting')
+        : t('interruption.toastAvoiding'));
     }
     setIsVisible(false);
   };
@@ -47,14 +49,14 @@ const InterruptionOverlay = ({ activeView, showToast }) => {
     <div className={`interruption-card ${isVisible ? 'visible' : ''}`}>
       <div className="interruption-content">
         <p className="interruption-text">
-          Você está aqui há um tempo. O que você está notando?
+          {t('interruption.question')}
         </p>
         <div className="interruption-choices">
           <button type="button" className="btn-choice" onClick={() => handleChoice('drifting')}>
-            Estou divagando
+            {t('interruption.drifting')}
           </button>
           <button type="button" className="btn-choice" onClick={() => handleChoice('avoiding')}>
-            Estou evitando algo
+            {t('interruption.avoiding')}
           </button>
           <button 
             type="button"
@@ -62,7 +64,7 @@ const InterruptionOverlay = ({ activeView, showToast }) => {
             style={{ marginTop: 8, textDecoration: 'none' }}
             onClick={() => handleChoice('deferred')}
           >
-            Agora não
+            {t('interruption.defer')}
           </button>
         </div>
       </div>

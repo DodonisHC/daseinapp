@@ -31,7 +31,7 @@ Convenções práticas:
 
 ## Contratos que não devem ser partidos inadvertidamente
 
-1. **`localStorage`**: canónicas **`dasein_metadata`** e **`dasein_content`** (definidas em **`app/src/storageKeys.js`**). Existiram chaves **`ontoapp_*`** herdadas — a entrada da app corre **`migrateOntoKeysToDasein()`** antes do render (**`main.jsx`**). Ao mudar formato, atualizar migração/compat e testes; não regressar dados de utilizadores sem plano explícito.
+1. **`localStorage`**: canónicas **`dasein_metadata`** e **`dasein_content`**, **`dasein_locale`** (definidas em **`app/src/storageKeys.js`**). Existiram chaves **`ontoapp_*`** herdadas — a entrada da app corre **`migrateOntoKeysToDasein()`** antes do render (**`main.jsx`**). Ao mudar formato, atualizar migração/compat e testes; não regressar dados de utilizadores sem plano explícito.
 2. **`type` nos metadados**: valores como **`morning_ritual`**, **`nightly_reflection`**, **`interruption_response`** são consumidos por **`useBalance`**. Alterar semantics sem atualizar esse agregador quebra métricas de balance card.
 3. **E2E Playwright**: specs em `tests/e2e/` assumem **copy** específico em **pt-BR** (ex.: *“Chegue ao seu corpo.”*) e porta **5173**. Ajustes de copy ou base URL obrigam a atualizar testes ou a introduzir uma config estável (`playwright.config` + `baseURL`).
 
@@ -68,7 +68,7 @@ Para alterações tocando fluxos navegacionais/copy: atualizar **`app/tests/e2e/
 
 - Diffs **pequenos e justificados** pela tarefa; evitar refactor estético unrelated.
 - Manter nomenclatura e padrões de ficheiros existentes; quando introduzir ficheiros novos, colocá-los no mesmo nível semântico (view vs hook vs ui).
-- Manter texto de UI em **português brasileiro**, consistente entre vistas (a menos que a tarefa peça mudança explícita de idioma ou internacionalização).
+- **Multilingua**: toda copy visível aos utilizadores vai para **`app/src/i18n/locales/pt-BR.json`** e **`en.json`** (`i18next` / `react-i18next`). Não introduzir strings hardcoded nos fluxos principais sem actualizar estas duas entradas. Rastreio BMAD: **`_bmad-output/planning-artifacts/traceability-dasein-bmad.md`**.
 
 ---
 

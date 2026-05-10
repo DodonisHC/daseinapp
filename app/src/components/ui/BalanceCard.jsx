@@ -1,10 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import useBalance from '../../hooks/useBalance';
 import FormaDoSer from './FormaDoSer';
 
-const BalanceCard = () => {
-  const { balance } = useBalance();
-
-  const Pillar = ({ label, value, color }) => (
+function BalancePillar({ label, value, color }) {
+  return (
     <div style={{ marginBottom: 16 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4, fontSize: '0.85rem' }}>
         <span>{label}</span>
@@ -26,6 +25,16 @@ const BalanceCard = () => {
       </div>
     </div>
   );
+}
+
+const BalanceCard = () => {
+  const { t } = useTranslation();
+  const { balance } = useBalance();
+
+  const alignmentFootnote =
+    balance.body + balance.mind + balance.purpose === 300
+      ? t('balance.alignmentFull')
+      : t('balance.alignmentPartial');
 
   return (
     <div className="fade-in" style={{ 
@@ -36,19 +45,17 @@ const BalanceCard = () => {
       border: '1px solid rgba(0,0,0,0.03)'
     }}>
       <h3 style={{ fontSize: '1rem', fontWeight: 400, marginBottom: 20, textAlign: 'left' }}>
-        Estado atual
+        {t('balance.heading')}
       </h3>
       
       <FormaDoSer balance={balance} />
       
-      <Pillar label="Corpo (ritual)" value={balance.body} color="#8C9A8E" />
-      <Pillar label="Mente (diálogo)" value={balance.mind} color="#A7A294" />
-      <Pillar label="Propósito (presente)" value={balance.purpose} color="#D4A373" />
+      <BalancePillar label={t('balance.body')} value={balance.body} color="#8C9A8E" />
+      <BalancePillar label={t('balance.mind')} value={balance.mind} color="#A7A294" />
+      <BalancePillar label={t('balance.purpose')} value={balance.purpose} color="#D4A373" />
       
       <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textAlign: 'left', marginTop: 12, fontStyle: 'italic' }}>
-        {balance.body + balance.mind + balance.purpose === 300 
-          ? 'Você está em profundo alinhamento.' 
-          : 'Continue cuidando dos seus pilares.'}
+        {alignmentFootnote}
       </p>
     </div>
   );

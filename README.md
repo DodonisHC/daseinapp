@@ -2,7 +2,7 @@
 
 Monorepo de trabalho centrado na aplicação **DASEIN** (`app/`): SPA em React/Vite focada em rituais de presença e reflexão, com persistência apenas no lado cliente (`localStorage`). Junto existem um protótipo em HTML/JS (`app-vanilla/`) e pastas para metodologia BMAD / skills em `.claude/`.
 
-Documentação específica da app: **[`app/README.md`](app/README.md)**.
+Documentação específica da app: **[`app/README.md`](app/README.md)**. Rastreio BMAD ↔ implementação (**DASEIN**, i18n, storage): **`_bmad-output/planning-artifacts/traceability-dasein-bmad.md`**.
 
 ---
 

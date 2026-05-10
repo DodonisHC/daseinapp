@@ -1,5 +1,7 @@
 export const STORAGE_METADATA_KEY = 'dasein_metadata';
 export const STORAGE_CONTENT_KEY = 'dasein_content';
+/** Persistência da preferência de idioma (`pt-BR` | `en`). */
+export const LOCALE_STORAGE_KEY = 'dasein_locale';
 
 /** Chaves legacy (pré-marca DASEIN); só usadas pela migração. */
 export const LEGACY_METADATA_KEY = 'ontoapp_metadata';

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import EntryView from './components/views/EntryView';
 import MorningRitual from './components/views/MorningRitual';
 import InternalDialogue from './components/views/InternalDialogue';
 import InterruptionOverlay from './components/ui/InterruptionOverlay';
 import ToastContainer from './components/ui/ToastContainer';
+import LanguageSwitcher from './components/ui/LanguageSwitcher';
 
 function App() {
   const [currentView, setCurrentView] = useState('entry'); // entry, ritual, dialogue
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <div id="app-container">
+      <LanguageSwitcher />
       <ToastContainer toasts={toasts} />
       
       {currentView === 'entry' && (

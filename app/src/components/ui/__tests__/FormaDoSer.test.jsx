@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import FormaDoSer from '../FormaDoSer';
-import React from 'react';
 
 describe('FormaDoSer Component', () => {
   it('renders an SVG with the correctly calculated path', () => {

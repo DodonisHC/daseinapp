@@ -1,0 +1,67 @@
+{
+  "a11y": {
+    "languageSelect": "App language",
+    "micRecording": "Recording",
+    "micStart": "Start recording"
+  },
+  "chrome": {
+    "langPt": "PT",
+    "langEn": "EN"
+  },
+  "entry": {
+    "headline": "Arrive in your body.",
+    "startRitual": "Begin ritual",
+    "internalDialogue": "Internal dialogue",
+    "checkBalance": "Check balance"
+  },
+  "balance": {
+    "heading": "Current state",
+    "body": "Body (ritual)",
+    "mind": "Mind (dialogue)",
+    "purpose": "Purpose (presence)",
+    "alignmentFull": "You are in deep alignment.",
+    "alignmentPartial": "Keep tending to your pillars."
+  },
+  "ritual": {
+    "pausedToast": "Paused. Notice the stillness.",
+    "generatedPrompt": "What is the quality of your presence right now?",
+    "breatheTitle": "Breathe.",
+    "breatheSubtitle": "Follow the circle. Settle into this moment.",
+    "imHere": "I am here",
+    "speakTitle": "Speak.",
+    "speakSubtitle": "Notice what is present. Speak without planning.",
+    "audioPrivacy": "Audio is processed locally and never stored.",
+    "promptTitle": "Notice this.",
+    "promptSubtitle": "Your reflection has surfaced a question:",
+    "carryOn": "Carry this with me",
+    "cancel": "Cancel"
+  },
+  "dialogue": {
+    "title": "Internal dialogue",
+    "ephemeralBadge": "Ephemeral mode on",
+    "newPrompt": "New prompt",
+    "placeholder": "Write freely…",
+    "savePermanent": "Save reflection",
+    "release": "Let it go",
+    "useEphemeral": "Use ephemeral mode",
+    "savePermanentMode": "Switch to permanent save",
+    "cancel": "Cancel",
+    "toastEphemeral": "Processed. Nothing was saved.",
+    "toastSaved": "Saved on this device.",
+    "prompts": [
+      "What am I saying to myself right now?",
+      "What story am I using to protect myself?",
+      "What would I say if I were not afraid of the answer?",
+      "What feeling am I avoiding by staying only in my head?",
+      "Is this explanation true, or is it just convenient?"
+    ]
+  },
+  "interruption": {
+    "toastDrifting": "Noticed. Focus updated.",
+    "toastAvoiding": "Honesty is the first step.",
+    "question": "You have been here a while. What are you noticing?",
+    "drifting": "I am drifting",
+    "avoiding": "I am avoiding something",
+    "defer": "Not now"
+  }
+}

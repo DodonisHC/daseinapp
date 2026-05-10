@@ -1,9 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import InternalDialogue from '../InternalDialogue';
-import React from 'react';
+import i18n from '../../../i18n/config.js';
 
-// Mocking useStorage hook
 vi.mock('../../hooks/useStorage', () => ({
   default: () => ({
     saveReflection: vi.fn(() => true),
@@ -16,36 +15,43 @@ describe('InternalDialogue Component', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+    void i18n.changeLanguage('pt-BR');
   });
 
   it('renders correctly with default state', () => {
     render(<InternalDialogue onFinish={mockOnFinish} showToast={mockShowToast} />);
-    expect(screen.getByText('Diálogo interno')).toBeDefined();
-    expect(screen.getByPlaceholderText('Escreva com liberdade…')).toBeDefined();
-    expect(screen.getByText('Salvar reflexão')).toBeDefined();
+    expect(screen.getByText(i18n.t('dialogue.title'))).toBeDefined();
+    expect(screen.getByPlaceholderText(i18n.t('dialogue.placeholder'))).toBeDefined();
+    expect(screen.getByText(i18n.t('dialogue.savePermanent'))).toBeDefined();
   });
 
   it('toggles ephemeral mode when button is clicked', () => {
     render(<InternalDialogue onFinish={mockOnFinish} showToast={mockShowToast} />);
     
-    const toggleBtn = screen.getByText('Usar modo efêmero');
+    const toggleBtn = screen.getByText(i18n.t('dialogue.useEphemeral'));
     fireEvent.click(toggleBtn);
     
-    expect(screen.getByText('Modo efêmero ativo')).toBeDefined();
-    expect(screen.getByText('Soltar')).toBeDefined();
-    expect(screen.getByText('Salvar de forma permanente')).toBeDefined();
+    expect(screen.getByText(i18n.t('dialogue.ephemeralBadge'))).toBeDefined();
+    expect(screen.getByText(i18n.t('dialogue.release'))).toBeDefined();
+    expect(screen.getByText(i18n.t('dialogue.savePermanentMode'))).toBeDefined();
   });
 
   it('calls onFinish after saving non-ephemeral reflection', async () => {
     render(<InternalDialogue onFinish={mockOnFinish} showToast={mockShowToast} />);
     
-    const textarea = screen.getByPlaceholderText('Escreva com liberdade…');
+    const textarea = screen.getByPlaceholderText(i18n.t('dialogue.placeholder'));
     fireEvent.change(textarea, { target: { value: 'Deep thoughts' } });
     
-    const saveBtn = screen.getByText('Salvar reflexão');
+    const saveBtn = screen.getByText(i18n.t('dialogue.savePermanent'));
     fireEvent.click(saveBtn);
     
-    expect(mockShowToast).toHaveBeenCalledWith('Salvo neste dispositivo.');
+    expect(mockShowToast).toHaveBeenCalledWith(i18n.t('dialogue.toastSaved'));
     expect(mockOnFinish).toHaveBeenCalled();
+  });
+
+  it('usa copy em inglês quando o idioma está em EN', async () => {
+    await i18n.changeLanguage('en');
+    render(<InternalDialogue onFinish={mockOnFinish} showToast={mockShowToast} />);
+    expect(screen.getByText(i18n.t('dialogue.title'))).toHaveTextContent(/Internal dialogue/i);
   });
 });

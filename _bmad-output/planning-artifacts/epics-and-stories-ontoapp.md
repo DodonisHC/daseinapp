@@ -26,6 +26,7 @@ This document decomposes Ontoapp’s MVP requirements into epics and user storie
 - FR5: Forma do Ser qualitative balance visualization.
 - FR6: Optional ephemeral input mode for sensitive content.
 - FR7: Consent and privacy settings with opt-in/opt-out controls.
+- FR8: Multilingual reflective experience (**pt-BR** + **English**) with persisted locale (**DASEIN** web client).
 
 ### NonFunctional Requirements
 
@@ -33,6 +34,7 @@ This document decomposes Ontoapp’s MVP requirements into epics and user storie
 - NFR2: Minimal data storage and clear privacy handling.
 - NFR3: Fast audio capture and prompt generation.
 - NFR4: Accessible typography, contrast, audio and text flows.
+- NFR5: Internationalization discipline — copy in bundles, predictable fallbacks (**pt-BR** primary).
 
 ### Additional Requirements
 
@@ -59,6 +61,7 @@ This document decomposes Ontoapp’s MVP requirements into epics and user storie
 - FR5 → Epic 4: Forma do Ser Visualization
 - FR6 → Epic 5: Privacy, Consent, and Data Handling
 - FR7 → Epic 5: Privacy, Consent, and Data Handling
+- FR8 → Epic 7: Localization & DASEIN web traceability (**see** `_bmad-output/planning-artifacts/traceability-dasein-bmad.md`)
 
 ## Epic List
 
@@ -67,6 +70,7 @@ This document decomposes Ontoapp’s MVP requirements into epics and user storie
 - Epic 3: Existential Interruption
 - Epic 4: Balance Engine & Forma do Ser Visualization
 - Epic 5: Privacy, Consent, and Trust
+- Epic 7: Localization & traced execution (DASEIN web)
 
 ## Epic 1: Morning Embodied Ritual
 
@@ -280,6 +284,31 @@ So that I can use Ontoapp without behavioral detection enabled.
 - **When** the user opens the app,
 - **Then** the morning ritual, reflection capture, and Forma do Ser still function.
 - **And** the app does not prompt for behavioral signal consent again unless requested.
+
+## Epic 7: Localization & traced BMAD execution (DASEIN)
+
+Deliver a multilingual reflective UX that stays traceable to planning artifacts (**PRD FR8**, **Architecture §12**) and persists user choice offline.
+
+> **Naming note:** historical docs refer to **Ontoapp**; the shipping web product name is **DASEIN**. See `traceability-dasein-bmad.md`.
+
+### Story 7.1: Multilingual UI, locale persistence, and BMAD linkage
+
+As someone who reflects in my native language,
+I want to read the entire primary flow in **Portuguese (Brazil)** or **English**
+So that ritual and confrontation language matches how I think.
+
+**Acceptance Criteria:**
+- **Given** I open DASEIN for the first time,
+- **When** my browser/OS suggests a locale,
+- **Then** pt-BR is used whenever the navigator language is Portuguese; otherwise defaults follow `app/src/i18n/config.js`.
+
+- **Given** I tap **PT** or **EN** in the chrome control,
+- **When** I navigate across entry, ritual, dialogue, interruptions, balance,
+- **Then** all visible strings follow the chosen language from `app/src/i18n/locales/*.json`.
+
+- **Given** I reload,
+- **When** `dasein_locale` is present,
+- **Then** my language restores before first paint-critical copy renders (persisted preference).
 
 ## Implementation Notes
 

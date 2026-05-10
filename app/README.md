@@ -1,6 +1,6 @@
 # DASEIN (app)
 
-Cliente web **SPA** para rituais de presença e reflexão. Interface de utilizador em **português brasileiro** (`lang="pt-BR"` em `index.html`). Stack: **React 19**, **Vite 8**, JavaScript (**JSX**), persistência apenas em **`localStorage`**.
+Cliente web **SPA** para rituais de presença e reflexão (**DASEIN**). Interface **bilíngue**: **Português (Brasil)** e **Inglês** via **`i18next` / `react-i18next`**; preferência **`dasein_locale`**. BMAD ↔ código: **`_bmad-output/planning-artifacts/traceability-dasein-bmad.md`**. Stack: **React 19**, **Vite 8**, JavaScript (**JSX**), persistência apenas em **`localStorage`**.
 
 Para contexto do monorepo pai, consulte [`../README.md`](../README.md).
 
@@ -30,7 +30,9 @@ E2E (Playwright) em `tests/e2e/`: por defeito assume o dev server na porta **517
 | `src/components/views/` | Fluxos compositos (`EntryView`, `MorningRitual`, `InternalDialogue`) |
 | `src/components/ui/` | Peças reutilizáveis (`BalanceCard`, overlay de interrupção, toasts) |
 | `src/hooks/` | `useStorage`, `useBalance` |
-| `src/storageKeys.js` | Chaves estáveis + `migrateOntoKeysToDasein()` |
+| `src/storageKeys.js` | Chaves estáveis + `migrateOntoKeysToDasein()` + `LOCALE_STORAGE_KEY` |
+| `src/i18n/` | Bundles **`pt-BR` / `en`**, inicialização **`config.js`** |
+| `src/components/ui/LanguageSwitcher.jsx` | Selector PT / EN persistente |
 
 ---
 
@@ -74,4 +76,4 @@ npm test
 
 1. Rode `npm run lint`, `npm test` e idealmente `npm run build`.
 2. Qualquer mudança de chaves/formato em `localStorage` deve atualizar **`storageKeys.js`**, migração se aplicável e testes relacionados.
-3. Manter **copy de UI em português brasileiro**, tom calmo e direto alinhado ao restante fluxo; o nome da marca **DASEIN** pode aparecer só onde fizer sentido (título da página, documentação).
+3. Ao mudar texto de produto: actualizar **`pt-BR.json`** e **`en.json`** mantendo tom calmo; seguir **`traceability-dasein-bmad.md`** para PR/epic quando o PRD/arquitecture precisarem de entrada.

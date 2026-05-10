@@ -92,6 +92,12 @@ Current apps emphasize relaxation, productivity, or habit tracking, but they do 
 - The app must allow users to opt in or out of behavioral detection.
 - The app must make it clear which data is stored and which is ephemeral.
 
+### FR8: Multilingual reflective experience *(DASEIN / BMAD Epic 7)*
+- The app **must** support **Portuguese (Brazil)** and **English** for all primary user-visible strings across ritual, dialogue, interruption, balance, and navigation.
+- Users **must** be able to **switch languages** explicitly; the preference **must persist** locally (aligned with **`dasein_locale`** in `app/src/storageKeys.js`).
+- New copy **must** be added to **`app/src/i18n/locales/*.json`** and validated against acceptance criteria for story **7-1**.
+- Canonical traceability → `_bmad-output/planning-artifacts/traceability-dasein-bmad.md`.
+
 ## 7. Non-Functional Requirements
 
 ### NFR1: Usability
@@ -109,6 +115,10 @@ Current apps emphasize relaxation, productivity, or habit tracking, but they do 
 ### NFR4: Accessibility
 - The app should support readable font sizes and accessible contrast.
 - Audio and text experiences should both be available for users with different preferences.
+
+### NFR5: Internationalization discipline
+- All user-facing strings should live in **resource bundles**, not inlined ad hoc across components (current implementation: **`i18next` + `react-i18next`** under `app/src/i18n/`).
+- Fallback language **`pt-BR`** remains the reflective default for the LATAM persona; **`en`** supports secondary adoption and aligns with BMAD English planning artifacts without blocking execution in Portuguese.
 
 ## 8. User Journeys
 

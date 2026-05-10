@@ -1,25 +1,28 @@
+import { useTranslation } from 'react-i18next';
 import BalanceCard from '../ui/BalanceCard';
 
 const EntryView = ({ onStartRitual, onStartDialogue }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="view-container active fade-in">
       <div className="content-wrapper">
-        <h1 className="title">Chegue ao seu corpo.</h1>
+        <h1 className="title">{t('entry.headline')}</h1>
         
         <BalanceCard />
         
         <div className="actions">
-          <button className="btn-primary" onClick={onStartRitual}>
-            Iniciar ritual
+          <button type="button" className="btn-primary" onClick={onStartRitual}>
+            {t('entry.startRitual')}
           </button>
-          <button className="btn-secondary" onClick={onStartDialogue}>
-            Diálogo interno
+          <button type="button" className="btn-secondary" onClick={onStartDialogue}>
+            {t('entry.internalDialogue')}
           </button>
         </div>
         
         <div className="actions-bottom">
           <button type="button" className="btn-text">
-            Ver equilíbrio
+            {t('entry.checkBalance')}
           </button>
         </div>
       </div>

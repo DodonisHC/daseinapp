@@ -183,6 +183,22 @@ Build the Centro de Gravidade as a standalone module that can consume input even
 
 ---
 
+## 12. Localization (internationalisation)
+
+Aligned with PRD **FR8 / NFR5** and **BMAD Epic 7** (`_bmad-output/implementation-artifacts/7-1-multilingual-ui-and-bmad-traceability.md`).
+
+### Client responsibilities
+
+| Concern | Implementation (web reference client **DASEIN**) |
+|---------|---------------------------------------------------|
+| Resource bundles | `app/src/i18n/locales/pt-BR.json`, `app/src/i18n/locales/en.json` |
+| Runtime | **`i18next`** + **`react-i18next`** (`app/src/i18n/config.js`) |
+| Language selection | **`LanguageSwitcher`** component; persists **`dasein_locale`** |
+| Semantic HTML locale | **`document.documentElement.lang`** updates on **`languageChanged`** |
+| Fallback | **`pt-BR`** when navigator/storage does not specify a supported code |
+
+Domain keys (`morning_ritual`, `interruption_response`, etc.) remain **language-agnostic** in `localStorage` metadata—only displayed copy varies by locale.
+
 ## Appendix: Candidate Architecture Diagram
 
 - Mobile client
@@ -190,6 +206,7 @@ Build the Centro de Gravidade as a standalone module that can consume input even
   - Reflection UI
   - Interruption UI
   - Visualization UI
+  - Localization / i18n resources **(bundles + switch + persistence)**  
   - Local balance engine
   - Privacy manager
 - Optional backend

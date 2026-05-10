@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ToastContainer = ({ toasts }) => {
   return (
     <div className="toast-container">
