@@ -15,7 +15,7 @@ Este ficheiro **amarra** a implementação ao pipeline BMAD (`_bmad/`, `_bmad-ou
 | PRD | `planning-artifacts/prd-ontoapp.md` **FR8 / NFR5** | `src/i18n/locales/*.json`, sem strings hardcoded nos componentes primários |
 | Arquitetura | `planning-artifacts/architecture-ontoapp.md` **§12** | `src/i18n/config.js`, `LanguageSwitcher.jsx`, `LOCALE_STORAGE_KEY` |
 | Épicos & histórias | `planning-artifacts/epics-and-stories-ontoapp.md` **Epic 7** | funcionalidades listadas aqui devem gerar/atualizar story sob `implementation-artifacts/` |
-| Sprint | `implementation-artifacts/sprint-status.yaml` | estado **epic-7**, story **7-1** ↔ PR em curso ou review |
+| Sprint | `implementation-artifacts/sprint-status.yaml` | **epic-7** / story **7-1** marcados como **`done`** (histórico na `main`) |
 | Story executável | `implementation-artifacts/7-1-multilingual-ui-and-bmad-traceability.md` | critérios de aceite verificados via `npm test` + Playwright onde aplicável |
 
 ## Nome do produto
